@@ -10,7 +10,7 @@ var dropOffApp = {};
 		recycle : 'img/recycle.png'
 	};
 
-	app.markers = [];
+	app.points = [];
 
 	app.cities = [ 'Niterói - RJ' ];
 
@@ -29,13 +29,13 @@ var dropOffApp = {};
 
 		app.map = new google.maps.Map( mapCanvas, mapOptions );
 
-		var center = new google.maps.Marker({
+		var user = new google.maps.Marker({
 			position: center, 
 			map: app.map,
 			title: "Sua posição"
 		});
 
-		app.markers.push( center );
+		app.points.push( center );
 
 		getJSON( 'data/niteroi-rj.json', function( data ) {
 
@@ -43,14 +43,29 @@ var dropOffApp = {};
 
 			points.forEach(function( pt ){
 
-				app.markers.push( new google.maps.Marker({
-					position: new google.maps.LatLng( pt.lat, pt.long ), 
+				var pos = new google.maps.LatLng( pt.lat, pt.long );
+				
+				var marker = new google.maps.Marker({
+					position: pos, 
 					map: app.map,
 					icon: app.pins.recycle,
 					title: pt.name,
 					//address : pt.address + ' ' + app.cities[ 0 ],
 					//tels : pt.tels.slice( '|' )
-				}));
+				});
+
+				var infoWindow = new google.maps.InfoWindow({
+					content: pt.name + '\n' + pt.address + ' ' + app.cities[ 0 ] + '\n' + pt.tels.slice( '|' ),
+		      position: pos
+		    });
+
+				google.maps.event.addListener( marker, 'click', function( e ) {
+					
+		      infoWindow.open( app.map );
+
+			  });
+
+				app.points.push( marker );
 
 			});
 
@@ -77,6 +92,7 @@ var dropOffApp = {};
 		xhr.open( 'GET', url, true );
 		xhr.send( null );
 		xhr.onreadystatechange = function() {
+
 				if ( this.status == 200 && this.readyState == 4 ) {
 
 						success(this.responseText);
