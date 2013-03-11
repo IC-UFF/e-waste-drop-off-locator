@@ -1,25 +1,25 @@
 [{
 	"name" : "COOPERCANIT",
 	"address" : "R. Pd. Anchieta, 72 - Centro",
-	"tel" : "(21) 3024-9496",
-	"lat" : 0,
-	"long" : 0
+	"tels" : "(21) 3024-9496",
+	"lat" : -22.905985,
+	"long" : -43.133698
 },{
 	"name" : "Escola Estadual Alcina Rodrigues",
 	"address" : "Estrada Francisco da Cruz Nunes - Itaipu",
-	"tel" : "(21) 3701-2423|(21) 3701-2425",
-	"lat" : 0,
-	"long" : 0
+	"tels" : "(21) 3701-2423|(21) 3701-2425",
+	"lat" : -22.902910,
+	"long" : -43.134628
 },{
 	"name" : "Oficina de Cartuchos",
 	"address" : "Av. Ewerton da Cosa Xavier s/nº - Lote 1 - Quadra 80 - Itaipu",
-	"tel" : "",
-	"lat" : 0,
-	"long" : 0
+	"tels" : "",
+	"lat" : -22.903985,
+	"long" : -43.113622
 },{
 	"name" : "RFSom Assistência Técnica",
 	"address" : "R. Noronha Terrezão, 21 - Santa Rosa",
-	"tel" : "(21) 2710-4382",
-	"lat" : 0,
-	"long" : 0
+	"tels" : "(21) 2710-4382",
+	"lat" : -22.902885,
+	"long" : -43.163638
 }]

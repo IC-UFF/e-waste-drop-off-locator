@@ -17,10 +17,10 @@ var dropOffApp = {};
 	app.init = function ( pos ) {
 
 		var mapCanvas = document.getElementById( 'map-canvas' );
-		var latLng = new google.maps.LatLng( pos.coords.latitude, pos.coords.longitude );
+		var center = new google.maps.LatLng( pos.coords.latitude, pos.coords.longitude );
 		var mapOptions = {
-			center: latLng,
-			zoom: 15,
+			center: center,
+			zoom: 12,
 			scrollwheel: true,
 			streetViewControl: true,
 			labels: true,
@@ -30,15 +30,31 @@ var dropOffApp = {};
 		app.map = new google.maps.Map( mapCanvas, mapOptions );
 
 		var center = new google.maps.Marker({
-			position: latLng, 
+			position: center, 
 			map: app.map,
-			icon: app.pins.recycle,
 			title: "Sua posição"
 		});
 
 		app.markers.push( center );
 
+		getJSON( 'data/niteroi-rj.json', function( data ) {
 
+			var points = JSON.parse( data );
+
+			points.forEach(function( pt ){
+
+				app.markers.push( new google.maps.Marker({
+					position: new google.maps.LatLng( pt.lat, pt.long ), 
+					map: app.map,
+					icon: app.pins.recycle,
+					title: pt.name,
+					//address : pt.address + ' ' + app.cities[ 0 ],
+					//tels : pt.tels.slice( '|' )
+				}));
+
+			});
+
+		});
 
 	};
 
@@ -46,7 +62,7 @@ var dropOffApp = {};
 
 		navigator.geolocation.getCurrentPosition( success, function() {
 
-			alert( 'Você deve compartilhar a sua pocisão conosco...');
+			alert( 'Você deve compartilhar a sua posição conosco...');
 
 			requestLocation( success );
 
@@ -54,9 +70,20 @@ var dropOffApp = {};
 
 	}
 
-	function getJSON( url, success, fail ) {
+	function getJSON( url, success ) {
 
-		
+		var xhr = new XMLHttpRequest();
+
+		xhr.open( 'GET', url, true );
+		xhr.send( null );
+		xhr.onreadystatechange = function() {
+				if ( this.status == 200 && this.readyState == 4 ) {
+
+						success(this.responseText);
+
+				}
+
+		};
 
 	}
 
