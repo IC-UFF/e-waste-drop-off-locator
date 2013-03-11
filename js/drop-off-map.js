@@ -7,10 +7,12 @@ var dropOffApp = {};
 	var document = window.document;
 
 	app.pins = {
-		recycle : '../img/recycle.png'
+		recycle : 'img/recycle.png'
 	};
 
 	app.markers = [];
+
+	app.cities = [ 'Niterói - RJ' ];
 
 	app.init = function ( pos ) {
 
@@ -19,6 +21,9 @@ var dropOffApp = {};
 		var mapOptions = {
 			center: latLng,
 			zoom: 15,
+			scrollwheel: true,
+			streetViewControl: true,
+			labels: true,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
 
@@ -27,14 +32,13 @@ var dropOffApp = {};
 		var center = new google.maps.Marker({
 			position: latLng, 
 			map: app.map,
-			scrollwheel: true,
-			streetViewControl: true,
-			labels: true,
-			pin: app.pins.recycle,
+			icon: app.pins.recycle,
 			title: "Sua posição"
 		});
 
 		app.markers.push( center );
+
+
 
 	};
 
@@ -47,6 +51,12 @@ var dropOffApp = {};
 			requestLocation( success );
 
 		});
+
+	}
+
+	function getJSON( url, success, fail ) {
+
+		
 
 	}
 
