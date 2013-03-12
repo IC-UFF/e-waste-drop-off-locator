@@ -10,11 +10,9 @@ var dropOffApp = {};
 		recycle : 'img/recycle.png'
 	};
 
-	app.points = [];
-
-	app.cities = [ 'Niterói - RJ' ];
-
 	app.init = function ( pos ) {
+
+		//app.points = [];
 
 		getJSON( 'data/niteroi-rj.json', function( data ) {
 			
@@ -38,17 +36,26 @@ var dropOffApp = {};
 
 			if ( pos ) {
 
-				app.points.push( new google.maps.Marker({
-					position: center, 
-					map: app.map,
-					title: "Sua posição"
-				}));
+				// app.points.push( {
+				// 	'user' : 
+					new google.maps.Marker({
+						position: center, 
+						map: app.map,
+						title: "Sua posição"
+					});
+				//});
 
 			}
 
 			city.points.forEach(function( pt ){
 
 				var pos = new google.maps.LatLng( pt.lat, pt.long );
+
+				var infoWindowContent = '<div class="gm-title">' + pt.name + '</div>' + 
+																'<div class="gm-basicinfo">' + 
+																	'<div>' + pt.address + ', ' + city.name + ' - ' + city.region + '</div>' + 
+																	'<div>' + pt.tels.slice( '|' ) + '</div>' + 
+																'</div>';
 
 				var marker = new google.maps.Marker({
 					position: pos, 
@@ -58,7 +65,7 @@ var dropOffApp = {};
 					//address : pt.address + ' ' + app.cities[ 0 ],
 					//tels : pt.tels.slice( '|' ),
 					infoWindow : new google.maps.InfoWindow({
-						content: pt.name + '<br>' + pt.address + ' ' + app.cities[ 0 ] + '<br>' + pt.tels.slice( '|' ),
+						content: infoWindowContent,
 						position: pos
 					})
 				});
@@ -66,10 +73,12 @@ var dropOffApp = {};
 				google.maps.event.addListener( marker, 'click', function( e ) {
 					
 					marker.infoWindow.open( marker.map );
+					marker.map.setZoom( 16 );
+    			marker.map.setCenter( marker.getPosition() );
 
 				});
 
-				app.points.push( marker );
+				//app.points.push( { pt.name : marker } );
 
 			});
 
