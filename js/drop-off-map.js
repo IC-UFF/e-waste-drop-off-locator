@@ -1,6 +1,6 @@
 var dropOffApp = {};
 
-(function( window, app ) {
+(function( window, $, app ) {
 
 	'use strict';
 
@@ -14,14 +14,15 @@ var dropOffApp = {};
 
 		//app.points = [];
 
-		getJSON( 'data/niteroi-rj.json', function( data ) {
+		$.getJSON( 'data/niteroi-rj.json', function( data ) {
 			
 			var city = JSON.parse( data );
 
 			var mapCanvas = doc.getElementById( 'map-canvas' );
 			var infoWindowTemplate = Handlebars.compile( doc.getElementById( 'map-pop-tmpl' ).innerHTML );
 			var sidebarLinkTemplate = Handlebars.compile( doc.getElementById( 'sidebar-link-tmpl' ).innerHTML );
-			var pointList = doc.getElementById( 'point-list' );
+			
+			var pointList = $( 'point-list' );
 
 			var center = ( userPos ) ? new google.maps.LatLng( userPos.coords.latitude, userPos.coords.longitude ) :
 																 new google.maps.LatLng( city.center.lat, city.center.long );
@@ -63,15 +64,20 @@ var dropOffApp = {};
 					})
 				});
 
-				google.maps.event.addListener( marker, 'click', function( e ) {
+				var pointHandle = function( e ) {
 					
+					console.log( e );
 					marker.infoWindow.open( marker.map );
 					marker.map.setZoom( 16 );
     			marker.map.setCenter( marker.getPosition() );
+    			return false;
 
-				});
+				};
 
-				pointList.innerHTML += ( sidebarLinkTemplate( point ) );
+				google.maps.event.addListener( marker, 'click', pointHandle );
+
+				pointList.appendChild( $( sidebarLinkTemplate( point ) ).click( pointHandle ) );
+
 				//app.points.push( { point.name : marker } );
 
 			});
@@ -80,56 +86,10 @@ var dropOffApp = {};
 
 	};
 
-	function requestUserLocation( success, failMsg ) {
+	$(function(){
 
-		navigator.geolocation.getCurrentPosition( success, function() {
+		app.init();
 
-			if ( confirm( failMsg ) ) {
+	});
 
-				requestUserLocation( success, failMsg );
-
-			}
-
-			success();
-
-		});
-
-	}
-
-	function getJSON( url, success ) {
-
-		var xhr = new XMLHttpRequest();
-
-		xhr.open( 'GET', url, true );
-		xhr.send( null );
-		xhr.onreadystatechange = function() {
-
-				if ( this.status === 200 && this.readyState === 4 ) {
-
-						success( this.responseText );
-
-				}
-
-		};
-
-	}
-
-	document.addEventListener( "readystatechange", function() {
-
-		if ( document.readyState === "interactive" ) {
-
-			// if ( navigator.geolocation ) {
-
-			// 	requestUserLocation( app.init, 'Você deve compartilhar a sua posição conosco para podermos identificar os pontos de coleta próximos à você' );
-
-			// } else {
-
-				app.init();
-
-			// }
-
-		}
-
-	}, false );
-
-}( window, dropOffApp ));
+}( window, jQuery, dropOffApp ));
