@@ -64,14 +64,14 @@ var dropOffApp = {};
 
 				var handleFunc = function() {
 					
-					if ( app.map.oppenned ) {
+					if ( marker.map.oppenned ) {
 
-						app.map.oppenned.infoWindow.close();
+						marker.map.oppenned.infoWindow.close();
 
 					}
 
 					marker.infoWindow.open( marker.map );
-					app.map.oppenned = marker;
+					marker.map.oppenned = marker;
 					marker.map.setZoom( 16 );
 					marker.map.setCenter( marker.getPosition() );
 					return false;
