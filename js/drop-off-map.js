@@ -118,15 +118,15 @@ var dropOffApp = {};
 
 		if ( document.readyState === "interactive" ) {
 
-			if ( navigator.geolocation ) {
+			// if ( navigator.geolocation ) {
 
-				requestUserLocation( app.init, 'Você deve compartilhar a sua posição conosco para podermos identificar os pontos de coleta próximos à você' );
+			// 	requestUserLocation( app.init, 'Você deve compartilhar a sua posição conosco para podermos identificar os pontos de coleta próximos à você' );
 
-			} else {
+			// } else {
 
 				app.init();
 
-			}
+			// }
 
 		}
 
