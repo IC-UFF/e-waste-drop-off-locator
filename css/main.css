@@ -1,6 +1,18 @@
 html,body{
 	height:100%;
 }
+.app-name{
+	margin:0;
+	padding:0;
+	line-height:1;
+}
+.app-name .brand{
+	color:#fff;
+}
+.container-fluid{
+	padding-right:0;
+	padding-left:0;
+}
 .navbar{
 	margin-bottom: 0 !important;
 }
@@ -8,6 +20,14 @@ html,body{
 	-webkit-border-radius: 0;
 	-moz-border-radius: 0;
 	border-radius: 0;
+}
+.row-fluid .app-content{
+	height:100%;
+	margin-left:0 !important;
+	margin-right:0 !important;
+}
+.row-fluid .app-content.span9{
+	width: 76.595744680851055%;
 }
 .map-wrap{
 	position:relative;
@@ -27,6 +47,21 @@ html,body{
 
 #map-canvas label { width: auto; display:inline; }
 #map-canvas img { max-width: none; }
+
+.oc-list{
+	height:100%;
+
+	background-color: #1B1B1B;
+	background-image: -moz-linear-gradient(top,#222,#111);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#222),to(#111));
+	background-image: -webkit-linear-gradient(top,#222,#111);
+	background-image: -o-linear-gradient(top,#222,#111);
+	background-image: linear-gradient(to bottom,#222,#111);
+	background-repeat: repeat-x;
+	border-color: #252525;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff222222',endColorstr='#ff111111',GradientType=0);
+
+}
 
 @media (max-width: 979px) {
 	.map-wrap{

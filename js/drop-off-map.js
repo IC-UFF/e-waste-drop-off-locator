@@ -20,9 +20,11 @@ var dropOffApp = {};
 
 			var mapCanvas = doc.getElementById( 'map-canvas' );
 			var infoWindowTemplate = Handlebars.compile( doc.getElementById( 'map-pop-tmpl' ).innerHTML );
+			var sidebarLinkTemplate = Handlebars.compile( doc.getElementById( 'sidebar-link-tmpl' ).innerHTML );
+			var pointList = doc.getElementById( 'point-list' );
 
 			var center = ( userPos ) ? new google.maps.LatLng( userPos.coords.latitude, userPos.coords.longitude ) :
-														 new google.maps.LatLng( city.center.lat, city.center.long );
+																 new google.maps.LatLng( city.center.lat, city.center.long );
 
 			var mapOptions = {
 				center: center,
@@ -63,12 +65,13 @@ var dropOffApp = {};
 
 				google.maps.event.addListener( marker, 'click', function( e ) {
 					
-					marker.infoWindow.open( marker.map );
+					marker.infoWindowTemplate.open( marker.map );
 					marker.map.setZoom( 16 );
     			marker.map.setCenter( marker.getPosition() );
 
 				});
 
+				pointList.innerHTML += ( sidebarLinkTemplate( point ) );
 				//app.points.push( { point.name : marker } );
 
 			});

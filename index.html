@@ -10,15 +10,12 @@
 	<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
 </head>
 <body>
-	<div class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse">
 		<div class="navbar-inner">
 			<div class="container">
-				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="brand" href="#">Descarte Seguro de E-lixo</a>
+				<h1 class="app-name">
+					<span class="brand">Descarte Seguro de E-lixo</span>
+				</h1>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
 						<li class="active"><a href="#">Mapa</a></li>
@@ -27,10 +24,18 @@
 				</div><!--/.nav-collapse -->
 			</div>
 		</div>
-	</div>
-	<main class="container">
-		<div class="hero-unit map-wrap">
-			<div id="map-canvas">
+	</nav>
+	<main class="container-fluid">
+		<div class="row-fluid wrap" style="height:100%">
+			<aside class="span3 navbar-inverse oc-list">
+				<ul id="point-list" class="nav nav-list">
+				</ul>
+			</aside>
+			<div class="span9 app-content">
+				<div class="map-wrap">
+					<div id="map-canvas">
+					</div>
+				</div>
 			</div>
 		</div>
 	</main>
@@ -47,7 +52,10 @@
 			<div>{{#each tels}}{{this}} {{/each}}</div>
 		</div>
 	</script>
-
+	<script id="sidebar-link-tmpl" type="text/x-handlebars-template">
+		<li><a href="#">{{name}}</a></li>
+	</script>
+	
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
