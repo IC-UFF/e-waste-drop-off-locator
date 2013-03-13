@@ -10,7 +10,7 @@ var dropOffApp = {};
 		recycle : 'img/recycle.png'
 	};
 
-	app.init = function ( pos ) {
+	app.init = function ( userPos ) {
 
 		//app.points = [];
 
@@ -21,13 +21,13 @@ var dropOffApp = {};
 			var mapCanvas = doc.getElementById( 'map-canvas' );
 			var infoWindowTemplate = Handlebars.compile( doc.getElementById( 'map-pop-tmpl' ).innerHTML );
 
-			var center = ( pos ) ? new google.maps.LatLng( pos.coords.latitude, pos.coords.longitude ) :
+			var center = ( userPos ) ? new google.maps.LatLng( userPos.coords.latitude, userPos.coords.longitude ) :
 														 new google.maps.LatLng( city.center.lat, city.center.long );
 
 			var mapOptions = {
 				center: center,
 				zoom: 12,
-				scrollwheel: true,
+				scrollwheel: false,
 				streetViewControl: true,
 				labels: true,
 				mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -35,7 +35,7 @@ var dropOffApp = {};
 
 			app.map = new google.maps.Map( mapCanvas, mapOptions );
 
-			if ( pos ) {
+			if ( userPos ) {
 
 				// app.points.push( {
 				// 	'user' : 
