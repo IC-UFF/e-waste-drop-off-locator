@@ -78,4 +78,7 @@ html,body{
 		margin-left:-20px;
 		margin-right:-20px;
 	}
+	.oc-list{
+		height:auto;
+	}
 }
