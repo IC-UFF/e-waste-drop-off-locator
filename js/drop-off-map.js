@@ -63,9 +63,9 @@ var dropOffApp = {};
 
 				var handleFunc = function( e ) {
 
-					e.preventDefault && e.preventDefault();
-
 					var marker = ( this.attributes ) ? app.points[ this.attributes[ 'data-marker' ].value ] : this;
+
+					e.preventDefault && e.preventDefault();
 					
 					if ( marker.map.oppened ) {
 
@@ -79,7 +79,7 @@ var dropOffApp = {};
 
 						marker.map.oppened.infoWindow.close();
 						marker.map.oppened.sidebarItem.removeClass( 'active' );
-						marker.map.oppened = null;
+						
 					}
 
 					marker.infoWindow.open( marker.map, marker);
