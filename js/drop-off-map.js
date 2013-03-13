@@ -48,6 +48,8 @@ var dropOffApp = {};
 
 			}
 
+			var $sidebarFragment = $( doc.createDocumentFragment() );
+
 			city.points.forEach(function( point ){
 
 				var pos = new google.maps.LatLng( point.lat, point.long );
@@ -62,18 +64,27 @@ var dropOffApp = {};
 					})
 				});
 
-				var handleFunc = function() {
-					
-					if ( marker.map.oppenned ) {
+				var handleFunc = function(a, b, c) {
 
-						marker.map.oppenned.infoWindow.close();
+					if ( marker.map.oppened ) {
 
+						if ( marker.map.oppened === marker ) {
+	
+							marker.map.setZoom( 16 );
+							marker.map.setCenter( marker.getPosition() );
+							return;
+
+						}
+
+						marker.map.oppened.infoWindow.close();
+						marker.map.oppened.sidebarItem.removeClass( 'active' );
 					}
 
-					marker.infoWindow.open( marker.map );
-					marker.map.oppenned = marker;
+					marker.infoWindow.open( marker.map, marker);
+					marker.map.oppened = marker;
 					marker.map.setZoom( 16 );
 					marker.map.setCenter( marker.getPosition() );
+					marker.sidebarItem.addClass( 'active' );
 					return false;
 
 				};
@@ -82,12 +93,19 @@ var dropOffApp = {};
 
 				google.maps.event.addListener( marker, 'click', handleFunc );
 				google.maps.event.addDomListener( sidebarItem.find( 'a' )[ 0 ], 'click', handleFunc );
+				google.maps.event.addListener( marker.infoWindow, 'closeclick', function() {
+					marker.sidebarItem.removeClass( 'active' )
+				});
 
-				$pointList.append( sidebarItem );
+				marker.sidebarItem = sidebarItem;
+
+				$sidebarFragment.append( sidebarItem );
 				
 				app.points.push( marker );
 
 			});
+
+			$pointList.append( $sidebarFragment );
 
 		});
 
