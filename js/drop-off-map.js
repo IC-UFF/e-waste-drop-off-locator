@@ -14,15 +14,13 @@ var dropOffApp = {};
 
 		//app.points = [];
 
-		$.getJSON( 'data/niteroi-rj.json', function( data ) {
-			
-			var city = JSON.parse( data );
+		$.getJSON( 'data/niteroi-rj.json', function( city ) {
 
 			var mapCanvas = doc.getElementById( 'map-canvas' );
 			var infoWindowTemplate = Handlebars.compile( doc.getElementById( 'map-pop-tmpl' ).innerHTML );
 			var sidebarLinkTemplate = Handlebars.compile( doc.getElementById( 'sidebar-link-tmpl' ).innerHTML );
 			
-			var pointList = $( 'point-list' );
+			var $pointList = $( '#point-list' );
 
 			var center = ( userPos ) ? new google.maps.LatLng( userPos.coords.latitude, userPos.coords.longitude ) :
 																 new google.maps.LatLng( city.center.lat, city.center.long );
@@ -64,20 +62,22 @@ var dropOffApp = {};
 					})
 				});
 
-				var pointHandle = function( e ) {
+				var handleFunc = function( e ) {
 					
-					console.log( e );
 					marker.infoWindow.open( marker.map );
 					marker.map.setZoom( 16 );
-    			marker.map.setCenter( marker.getPosition() );
-    			return false;
+					marker.map.setCenter( marker.getPosition() );
+					return false;
 
 				};
 
-				google.maps.event.addListener( marker, 'click', pointHandle );
+				var sidebarItem = $( $.parseHTML( sidebarLinkTemplate( point ) ) );
+				
+				google.maps.event.addListener( marker, 'click', handleFunc );
+				google.maps.event.addDomListener( sidebarItem.find( 'a' )[ 0 ], 'click', handleFunc );
 
-				pointList.appendChild( $( sidebarLinkTemplate( point ) ).click( pointHandle ) );
-
+				$pointList.append( sidebarItem );
+				
 				//app.points.push( { point.name : marker } );
 
 			});

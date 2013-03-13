@@ -1,34 +1,46 @@
 {
-	"name" : "Niterói",
-	"region" : "RJ",
-	"country" : "BR",
-	"center" : { 
-			"lat" : -22.891565,
-			"long" : -43.121123
-		},
-	"points" : [{
-			"name" : "COOPERCANIT",
-			"address" : "R. Pd. Anchieta, 72 - Centro - Niterói, RJ",
-			"tels" : [ "(21) 3024-9496" ],
-			"lat" : -22.905985,
-			"long" : -43.133698
-		},{
-			"name" : "Escola Estadual Alcina Rodrigues",
-			"address" : "Estrada Francisco da Cruz Nunes - Itaipu - Niterói, RJ",
-			"tels" : [ "(21) 3701-2423", "(21) 3701-2425" ],
-			"lat" : -22.902910,
-			"long" : -43.134628
-		},{
-			"name" : "Oficina de Cartuchos",
-			"address" : "Av. Ewerton da Cosa Xavier s/nº - Lote 1 - Quadra 80 - Itaipu - Niterói, RJ",
-			"tels" : [],
-			"lat" : -22.903985,
-			"long" : -43.113622
-		},{
-			"name" : "RFSom Assistência Técnica",
-			"address" : "R. Noronha Terrezão, 21 - Santa Rosa - Niterói, RJ",
-			"tels" : [ "(21) 2710-4382" ],
-			"lat" : -22.902885,
-			"long" : -43.163638
-		}]
+    "name": "Niterói",
+    "region": "RJ",
+    "country": "BR",
+    "center": {
+        "lat": -22.891565,
+        "long": -43.121123
+    },
+    "points": [
+        {
+            "name": "COOPERCANIT",
+            "address": "R. Pd. Anchieta, 72 - Centro - Niterói, RJ",
+            "tels": [
+                "(21) 3024-9496"
+            ],
+            "lat": -22.905985,
+            "long": -43.133698
+        },
+        {
+            "name": "Escola Estadual Alcina Rodrigues",
+            "address": "Estrada Francisco da Cruz Nunes - Itaipu - Niterói, RJ",
+            "tels": [
+                "(21) 3701-2423",
+                "(21) 3701-2425"
+            ],
+            "lat": -22.90291,
+            "long": -43.134628
+        },
+        {
+            "name": "Oficina de Cartuchos",
+            "address": "Av. Ewerton da Cosa Xavier s/nº - Lote 1 - Quadra 80 - Itaipu - Niterói, RJ",
+            "tels": [],
+            "lat": -22.903985,
+            "long": -43.113622
+        },
+        {
+            "name": "RFSom Assistência Técnica",
+            "address": "R. Noronha Terrezão, 21 - Santa Rosa - Niterói, RJ",
+            "tels": [
+                "(21) 2710-4382"
+            ],
+            "lat": -22.902885,
+            "long": -43.163638
+        }
+    ]
 }
