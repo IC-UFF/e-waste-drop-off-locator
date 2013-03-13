@@ -65,7 +65,7 @@ var dropOffApp = {};
 
 				google.maps.event.addListener( marker, 'click', function( e ) {
 					
-					marker.infoWindowTemplate.open( marker.map );
+					marker.infoWindow.open( marker.map );
 					marker.map.setZoom( 16 );
     			marker.map.setCenter( marker.getPosition() );
 
