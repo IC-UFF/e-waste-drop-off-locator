@@ -12,7 +12,7 @@ var dropOffApp = {};
 
 	app.init = function ( userPos ) {
 
-		//app.points = [];
+		app.points = [];
 
 		$.getJSON( 'data/niteroi-rj.json', function( city ) {
 
@@ -62,9 +62,16 @@ var dropOffApp = {};
 					})
 				});
 
-				var handleFunc = function( e ) {
+				var handleFunc = function() {
 					
+					if ( app.map.oppenned ) {
+
+						app.map.oppenned.infoWindow.close();
+
+					}
+
 					marker.infoWindow.open( marker.map );
+					app.map.oppenned = marker;
 					marker.map.setZoom( 16 );
 					marker.map.setCenter( marker.getPosition() );
 					return false;
@@ -72,13 +79,13 @@ var dropOffApp = {};
 				};
 
 				var sidebarItem = $( $.parseHTML( sidebarLinkTemplate( point ) ) );
-				
+
 				google.maps.event.addListener( marker, 'click', handleFunc );
 				google.maps.event.addDomListener( sidebarItem.find( 'a' )[ 0 ], 'click', handleFunc );
 
 				$pointList.append( sidebarItem );
 				
-				//app.points.push( { point.name : marker } );
+				app.points.push( marker );
 
 			});
 
