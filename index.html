@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Descarte de e-Lixo | Niterói - Rio de Janeiro</title>
 	<style>
 		*{
@@ -22,7 +23,16 @@
 <body>
 	<div id="map-canvas">
 	</div>
-	<script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=pt-br"></script>
+	<script src="http://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyAYFumAwAsJnUar1GEwD-vO0LfO_gD4XaE&language=pt-br"></script>
+	<script src="js/vendor/handlebars.js"></script>
 	<script src="js/drop-off-map.js"></script>
+
+	<script id="map-pop-tmpl" type="text/x-handlebars-template">
+ 		<div class="gm-title">{{name}}</div>
+		<div class="gm-basicinfo">
+			<div>{{address}}</div>
+			<div>{{#each tels}}{{this}}{{/each}}</div>
+		</div>
+	</script>
 </body>
 </html>

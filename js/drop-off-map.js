@@ -4,7 +4,7 @@ var dropOffApp = {};
 
 	'use strict';
 
-	var document = window.document;
+	var doc = window.document;
 
 	app.pins = {
 		recycle : 'img/recycle.png'
@@ -18,7 +18,8 @@ var dropOffApp = {};
 			
 			var city = JSON.parse( data );
 
-			var mapCanvas = document.getElementById( 'map-canvas' );
+			var mapCanvas = doc.getElementById( 'map-canvas' );
+			var infoWindowTemplate = Handlebars.compile( doc.getElementById( 'map-pop-tmpl' ).innerHTML );
 
 			var center = ( pos ) ? new google.maps.LatLng( pos.coords.latitude, pos.coords.longitude ) :
 														 new google.maps.LatLng( city.center.lat, city.center.long );
@@ -40,32 +41,22 @@ var dropOffApp = {};
 				// 	'user' : 
 					new google.maps.Marker({
 						position: center, 
-						map: app.map,
-						title: "Sua posição"
+						map: app.map
 					});
 				//});
 
 			}
 
-			city.points.forEach(function( pt ){
+			city.points.forEach(function( point ){
 
-				var pos = new google.maps.LatLng( pt.lat, pt.long );
-
-				var infoWindowContent = '<div class="gm-title">' + pt.name + '</div>' + 
-																'<div class="gm-basicinfo">' + 
-																	'<div>' + pt.address + ', ' + city.name + ' - ' + city.region + '</div>' + 
-																	'<div>' + pt.tels.slice( '|' ) + '</div>' + 
-																'</div>';
+				var pos = new google.maps.LatLng( point.lat, point.long );
 
 				var marker = new google.maps.Marker({
 					position: pos, 
 					map: app.map,
 					icon: app.pins.recycle,
-					title: pt.name,
-					//address : pt.address + ' ' + app.cities[ 0 ],
-					//tels : pt.tels.slice( '|' ),
 					infoWindow : new google.maps.InfoWindow({
-						content: infoWindowContent,
+						content: infoWindowTemplate( point ),
 						position: pos
 					})
 				});
@@ -78,7 +69,7 @@ var dropOffApp = {};
 
 				});
 
-				//app.points.push( { pt.name : marker } );
+				//app.points.push( { point.name : marker } );
 
 			});
 
