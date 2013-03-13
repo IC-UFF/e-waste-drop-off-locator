@@ -33,6 +33,11 @@ var dropOffApp = {};
 				labels: true,
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			};
+			
+			var zoomMarker = function( marker ) {
+				marker.map.setZoom( 16 );
+				marker.map.setCenter( marker.getPosition() );
+			};
 
 			app.map = new google.maps.Map( mapCanvas, mapOptions );
 
@@ -71,21 +76,19 @@ var dropOffApp = {};
 
 						if ( marker.map.oppened === marker ) {
 	
-							marker.map.setZoom( 16 );
-							marker.map.setCenter( marker.getPosition() );
+							zoomMarker( marker );
 							return;
 
 						}
 
 						marker.map.oppened.infoWindow.close();
 						marker.map.oppened.sidebarItem.removeClass( 'active' );
-						
+
 					}
 
 					marker.infoWindow.open( marker.map, marker);
 					marker.map.oppened = marker;
-					marker.map.setZoom( 16 );
-					marker.map.setCenter( marker.getPosition() );
+					zoomMarker( marker );
 					marker.sidebarItem.addClass( 'active' );
 
 				};
