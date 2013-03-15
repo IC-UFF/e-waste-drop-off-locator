@@ -17,14 +17,14 @@
 			"long": -43.121865699999944
 		},
 		{
-			"name": "Escola Estadual Alcina Rodrigues",
-			"address": "Estrada Francisco da Cruz Nunes - Itaipu - Niterói, RJ",
+			"name": "Escola Estadual Alcina Rodrigues Lima",
+			"address": "Estrada Francisco da Cruz Nunes, s/n - Itaipu - Niterói, RJ",
 			"tels": [
 				"(21) 3701-2423",
 				"(21) 3701-2425"
 			],
-			"lat": -22.90291,
-			"long": -43.134628
+			"lat": -22.946456,
+			"long": -43.032265
 		},
 		{
 			"name": "Oficina de Cartuchos",
@@ -55,15 +55,15 @@
 			"name": "Posto GNV 24h",
 			"address": "R. Noronha Torrezão, esquina com 22 de novembro - Santa Rosa - Niterói, RJ",            
 			"tels": [],
-			"lat": -22.902885,
-			"long": -43.163638
+			"lat": -22.889317,
+			"long": -43.095814
 		},
 		{
 			"name": "Escola Aldeia Curumim",
-			"address": "R. Profº Dalton Gonçalves, 436 - Pendotiba - Niterói, RJ",
+			"address": "R. Prof. Dalton Gonçalves, 436 - Pendotiba - Niterói, RJ",
 			"tels": [],
-			"lat": -22.902885,
-			"long": -43.163638
+			"lat": -22.894621,
+			"long": -43.035889
 		},
 		{
 			"name": "Farmácia Riodades",
@@ -76,17 +76,17 @@
 		},
 		{
 			"name": "Ampla Assaí Alcantara",
-			"address": "R. Alfredo Backer, 605 - Alcantara - Niterói, RJ",            
+			"address": "R. Alfredo Backer, 605 - Alcantara, RJ",            
 			"tels": [],
-			"lat": -22.902885,
-			"long": -43.163638
+			"lat": -22.819969,
+			"long": -43.004637
 		},
 		{
 			"name": "Ampla",
 			"address": "Av. Professor João Brasil, s/nº - Engenhoca - Niterói, RJ",            
 			"tels": [],
-			"lat": -22.902885,
-			"long": -43.163638
+			"lat": -22.87042,
+			"long": -43.093507
 		},
 		{
 			"name": "Ampla",
@@ -99,8 +99,8 @@
 			"name": "Ampla (Parceria com a Clin)",
 			"address": "R. Jornalista Irineu Marinho, s/nº - Icaraí - Niterói, RJ",            
 			"tels": [],
-			"lat": -22.902885,
-			"long": -43.163638
+			"lat": -22.9097,
+			"long": -43.10399
 		},
 		{
 			"name": "Ampla  (Parceria com a Clin)",
