@@ -122,6 +122,16 @@
 			"tels": [],
 			"lat": -22.813253,
 			"long": -43.058209
+		},
+		{
+			"name": "Ampla",
+			"address": "R. Angelo Miguel, nº 385 - Maria da Graça, RJ",            
+			"tels": [
+				"(21) 3474-2901",				
+				"(21) 7896-0040"
+			],
+			"lat": -22.88607,
+			"long": -43.265158
 		}
 	]
 }
