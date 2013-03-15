@@ -12,7 +12,9 @@ var dropOffApp = {};
 
 	app.init = function ( userPos ) {
 
-		app.points = [];
+		var self = this;
+
+		self.points = [];
 
 		$.getJSON( 'data/niteroi-rj.json', function( city ) {
 
@@ -22,8 +24,9 @@ var dropOffApp = {};
 			
 			var $pointList = $( '#point-list' );
 
-			var center = ( userPos ) ? new google.maps.LatLng( userPos.coords.latitude, userPos.coords.longitude ) :
-																 new google.maps.LatLng( city.center.lat, city.center.long );
+			var center = ( userPos ) ?
+				new google.maps.LatLng( userPos.coords.latitude, userPos.coords.longitude ) :
+				new google.maps.LatLng( city.center.lat, city.center.long );
 
 			var mapOptions = {
 				center: center,
@@ -33,17 +36,12 @@ var dropOffApp = {};
 				labels: true,
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			};
-			
-			var zoomMarker = function( marker ) {
-				marker.map.setZoom( 16 );
-				marker.map.setCenter( marker.getPosition() );
-			};
 
-			app.map = new google.maps.Map( mapCanvas, mapOptions );
+			self.map = new google.maps.Map( mapCanvas, mapOptions );
 
 			if ( userPos ) {
 
-				app.points.push( new google.maps.Marker({
+				self.points.push( new google.maps.Marker({
 					position: center, 
 					map: app.map
 				}));
@@ -66,38 +64,11 @@ var dropOffApp = {};
 					})
 				});
 
-				var handleFunc = function( e ) {
-
-					var marker = ( this.attributes ) ? app.points[ this.attributes[ 'data-marker' ].value ] : this;
-
-					e.preventDefault && e.preventDefault();
-					
-					if ( marker.map.oppened ) {
-
-						if ( marker.map.oppened === marker ) {
-	
-							zoomMarker( marker );
-							return;
-
-						}
-
-						marker.map.oppened.infoWindow.close();
-						marker.map.oppened.sidebarItem.removeClass( 'active' );
-
-					}
-
-					marker.infoWindow.open( marker.map, marker);
-					marker.map.oppened = marker;
-					zoomMarker( marker );
-					marker.sidebarItem.addClass( 'active' );
-
-				};
-
 				var sidebarItem = $( $.parseHTML( sidebarLinkTemplate( point ) ) );
 				var sidebarItemLink = sidebarItem.find( 'a' );
 
-				google.maps.event.addListener( marker, 'click', handleFunc );
-				google.maps.event.addDomListener( sidebarItemLink[ 0 ], 'click', handleFunc );
+				google.maps.event.addListener( marker, 'click', self.openInfoWindow );
+				google.maps.event.addDomListener( sidebarItemLink[ 0 ], 'click', self.openInfoWindow );
 				google.maps.event.addListener( marker.infoWindow, 'closeclick', function() {
 					marker.sidebarItem.removeClass( 'active' );
 					marker.map.oppened = null;
@@ -105,7 +76,7 @@ var dropOffApp = {};
 
 				marker.sidebarItem = sidebarItem;
 				
-				sidebarItemLink.attr( 'data-marker' , app.points.push( marker ) -1 );
+				sidebarItemLink.attr( 'data-marker' , self.points.push( marker ) -1 );
 
 				$sidebarFragment.append( sidebarItem );
 
@@ -114,6 +85,42 @@ var dropOffApp = {};
 			$pointList.append( $sidebarFragment );
 
 		});
+
+	};
+
+	app.zoomMarker = function( marker ) {
+
+		marker.map.setZoom( 16 );
+		marker.map.setCenter( marker.getPosition() );
+
+	};
+
+	app.openInfoWindow = function( e ) {
+
+		var marker = ( this.attributes ) ?
+			app.points[ this.attributes[ 'data-marker' ].value ] :
+			this;
+
+		e.preventDefault && e.preventDefault();
+		
+		if ( marker.map.oppened ) {
+
+			if ( marker.map.oppened === marker ) {
+	
+				app.zoomMarker( marker );
+				return;
+
+			}
+
+			marker.map.oppened.infoWindow.close();
+			marker.map.oppened.sidebarItem.removeClass( 'active' );
+
+		}
+
+		marker.infoWindow.open( marker.map, marker);
+		marker.map.oppened = marker;
+		app.zoomMarker( marker );
+		marker.sidebarItem.addClass( 'active' );
 
 	};
 

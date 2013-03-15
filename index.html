@@ -34,6 +34,7 @@
 	<main class="container-fluid">
 		<div class="row-fluid wrap" style="height:100%">
 			<aside class="span3 navbar-inverse oc-list">
+
 				<ul id="point-list" class="nav nav-list">
 				</ul>
 			</aside>
@@ -53,10 +54,12 @@
 	<script src="js/drop-off-map.js"></script>
 
 	<script id="map-pop-tmpl" type="text/x-handlebars-template">
-		<div class="gm-title">{{name}}</div>
-		<div class="gm-basicinfo">
-			<div>{{address}}</div>
-			<div>{{#each tels}}{{this}} {{/each}}</div>
+		<div class="gm-iw">
+			<div class="gm-title">{{name}}</div>
+			<div class="gm-basicinfo">
+				<div>{{address}}</div>
+				<div>{{#each tels}}{{this}} {{/each}}</div>
+			</div>
 		</div>
 	</script>
 	<script id="sidebar-link-tmpl" type="text/x-handlebars-template">
