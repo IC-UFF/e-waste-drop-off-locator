@@ -46,7 +46,6 @@ a.side-menu-link {
   .navbar .btn-navbar{
     display:none;
   }
-
 }
 
 @media screen and (max-width: 48.063em) {
@@ -65,6 +64,10 @@ a.side-menu-link {
   .video{
     height:250px;
   }
+  #map-canvas{
+    height:600px;
+  }
+  
 }
 
 @media screen and (min-width: 48.25em) {
