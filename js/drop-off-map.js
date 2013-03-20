@@ -127,8 +127,6 @@ var dropOffApp = {};
 	$(function(){
 
 		app.init();
-		
-		$('body').addClass('js');
   
 		var $menu = $('#side-menu'),
 			$menulink = $('.side-menu-link'),
