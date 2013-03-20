@@ -18,7 +18,7 @@
 		},
 		{
 			"name": "Escola Estadual Alcina Rodrigues Lima",
-			"address": "Estrada Francisco da Cruz Nunes, s/n - Itaipu - Niterói, RJ",
+			"address": "Estrada Francisco da Cruz Nunes, s/nº - Itaipu - Niterói, RJ",
 			"tels": [
 				"(21) 3701-2423",
 				"(21) 3701-2425"
@@ -30,8 +30,8 @@
 			"name": "Oficina de Cartuchos",
 			"address": "Av. Ewerton da Cosa Xavier s/nº - Lote 1 - Quadra 80 - Itaipu - Niterói, RJ",
 			"tels": [],
-			"lat": -22.903985,
-			"long": -43.113622
+			"lat": -22.940206,
+			"long": -43.02775
 		},
 		{
 			"name": "RFSom Assistência Técnica",
@@ -61,9 +61,11 @@
 		{
 			"name": "Escola Aldeia Curumim",
 			"address": "R. Prof. Dalton Gonçalves, 436 - Pendotiba - Niterói, RJ",
-			"tels": [],
-			"lat": -22.894621,
-			"long": -43.035889
+			"tels": [
+				"(21) 2616-1326"
+			],
+			"lat": -22.895128,
+			"long": -43.034724
 		},
 		{
 			"name": "Farmácia Riodades",
@@ -75,49 +77,49 @@
 			"long": -43.082863950000046
 		},
 		{
-			"name": "Ampla Assaí Alcantara",
+			"name": "Ampla (Assaí - Alcantara)",
 			"address": "R. Alfredo Backer, 605 - Alcantara, RJ",            
 			"tels": [],
 			"lat": -22.819969,
 			"long": -43.004637
 		},
 		{
-			"name": "Ampla",
+			"name": "Ampla (Engenhoca - Niterói)",
 			"address": "Av. Professor João Brasil, s/nº - Engenhoca - Niterói, RJ",            
 			"tels": [],
 			"lat": -22.87042,
 			"long": -43.093507
 		},
 		{
-			"name": "Ampla",
-			"address": "R. Visconde do Rio Branco, 731 - Centro - Niterói, RJ",            
+			"name": "Ampla (Centro - Niterói)",
+			"address": "Av. Visconde do Rio Branco, 731 - Centro - Niterói, RJ",            
 			"tels": [],
-			"lat": -22.89798985670744,
-			"long": -43.12403014999995
+			"lat": -22.897427,
+			"long": -43.12775
 		},
 		{
-			"name": "Ampla (Parceria com a Clin)",
+			"name": "Ampla (Clin - Icaraí - Niterói)",
 			"address": "R. Jornalista Irineu Marinho, s/nº - Icaraí - Niterói, RJ",            
 			"tels": [],
 			"lat": -22.9097,
 			"long": -43.10399
 		},
 		{
-			"name": "Ampla  (Parceria com a Clin)",
+			"name": "Ampla (Clin - Largo da Batalha - Niterói)",
 			"address": "R. Leonor Glória, s/nº - Largo da Batalha - Niterói, RJ",            
 			"tels": [],
 			"lat": -22.906039806710087,
 			"long": -43.063744799999995
 		},
 		{
-			"name": "Ampla",
+			"name": "Ampla (Centro - São Gonçalo)",
 			"address": "R. Feliciano Sodré, 230 - Centro - São Gonçalo, RJ",            
 			"tels": [],
 			"lat": -22.82353510668312,
 			"long": -43.04703870000003
 		},
 		{
-			"name": "Ampla",
+			"name": "Ampla (Boa Vista - São Gonçalo)",
 			"address": "R. Joaquim de Oliveira, lote 308 - Boa Vista - São Gonçalo, RJ",            
 			"tels": [],
 			"lat": -22.813253,
@@ -125,7 +127,7 @@
 		},
 		{
 			"name": "e-lixo-rj",
-			"address": "R. Angelo Miguel, 385 - Maria da Graça, RJ",            
+			"address": "R. Angelo Miguel, 385 - Maria da Graça - Rio de Janeiro, RJ",            
 			"tels": [
 				"(21) 3474-2901",				
 				"(21) 7896-0040"

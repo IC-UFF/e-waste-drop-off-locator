@@ -21,7 +21,7 @@ var dropOffApp = {};
 			var mapCanvas = doc.getElementById( 'map-canvas' );
 			var infoWindowTemplate = Handlebars.compile( doc.getElementById( 'map-pop-tmpl' ).innerHTML );
 			var sidebarLinkTemplate = Handlebars.compile( doc.getElementById( 'sidebar-link-tmpl' ).innerHTML );
-			
+
 			var $pointList = $( '#point-list' );
 
 			var center = ( userPos ) ?
@@ -75,7 +75,7 @@ var dropOffApp = {};
 				});
 
 				marker.sidebarItem = sidebarItem;
-				
+
 				sidebarItemLink.attr( 'data-marker' , self.points.push( marker ) -1 );
 
 				$sidebarFragment.append( sidebarItem );
@@ -102,11 +102,11 @@ var dropOffApp = {};
 			this;
 
 		e.preventDefault && e.preventDefault();
-		
+
 		if ( marker.map.oppened ) {
 
 			if ( marker.map.oppened === marker ) {
-	
+
 				app.zoomMarker( marker );
 				return;
 
@@ -127,6 +127,18 @@ var dropOffApp = {};
 	$(function(){
 
 		app.init();
+		
+		$('body').addClass('js');
+  
+		var $menu = $('#side-menu'),
+			$menulink = $('.side-menu-link'),
+			$wrap = $('#wrap');
+		
+		$menulink.click(function() {
+			$menulink.toggleClass('active');
+			$wrap.toggleClass('active');
+			return false;
+		});
 
 	});
 

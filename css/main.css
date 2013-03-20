@@ -54,6 +54,15 @@ html,body{
 	background-color: #1B1B1B;
 }
 
+.jumbotron {
+margin: 60px 0;
+text-align: center;
+}
+.jumbotron h1 {
+font-size: 72px;
+line-height: 1;
+}
+
 @media (max-width: 979px) {
 	.map-wrap{
 		margin-top:0;

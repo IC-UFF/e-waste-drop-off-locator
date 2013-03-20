@@ -1,108 +1,90 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="google-site-verification" content="JSDzmP64NIIAaKDNkujfr1e5bRIjcHEH9tfuegBryq4">
-	<title>Descarte de e-Lixo | Niterói - Rio de Janeiro</title>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="JSDzmP64NIIAaKDNkujfr1e5bRIjcHEH9tfuegBryq4">
+  <title>Descarte de e-Lixo | Niterói - Rio de Janeiro</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+  <link rel="stylesheet" href="css/new.css">
 </head>
 <body>
-	<nav class="navbar navbar-inverse">
-		<div class="navbar-inner">
-			<div class="container">
-				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-
-				<h1 class="app-name">
-					<span class="brand">Descarte Seguro de E-lixo</span>
-				</h1>
-				<div class="nav-collapse collapse">
-					<ul class="nav">
-						
-					</ul>
-				</div><!--/.nav-collapse -->
-			</div>
-		</div>
-	</nav>
-	<main class="container-fluid">
-		<div class="row-fluid wrap" style="height:100%">
-			<aside class="span3 navbar-inverse oc-list">
-
-				<ul id="point-list" class="nav nav-list">
-				</ul>
-			</aside>
-			<div class="span9 app-content">
-				<div class="map-wrap">
-					<div id="map-canvas">
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row-fluid">
-			 <div class="hero-unit">
-        <h1>Mapeamento do Lixo Tecnológico</h1>
-        <p>O mapa acima indica diversos pontos de reciclagem e coleta de lixo eletrônico em Niterói e adjacências. 
-        Este site é o projeto final da disciplina Computação e Meio Ambiente, dos alunos da UFF:</p>
-        <p>Alexandre Estebanez, Higor Ortiz, Leonardo Souza, Leonardo Azevedo, Leonardo Lage, Thiago Banicio</p>
- 
-        	<h2>Entrevista feita com o Reinaldo da cooperativa coopcanit.</h2>
-        	<iframe width="420" height="315" src="http://www.youtube.com/embed/CrrRn1K2Ltk" frameborder="0" allowfullscreen></iframe>
-
- 
+  <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <button type="button" class="btn btn-navbar side-menu-link">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="#">Descarte Seguro de E-lixo</a>
+          </div>
+        </div>
       </div>
-      <div class="row-fluid" style="margin left:5px">
-        <div class="span4">
-          <h2>Uma abordagem empreendedora para o problema do lixo eletrônico</h2>
-          <iframe width="420" height="315" src="http://www.youtube.com/embed/LTK9qsldZVA" frameborder="0" allowfullscreen></iframe>
-          <p><a class="btn" href="https://www.youtube.com/watch?v=LTK9qsldZVA">Veja detalhes do vídeo</a></p>
-        </div><!--/span-->
-        <div class="span4">
-          <h2>Brasil - Da Produção a Reciclagem e Reaproveitamento</h2>
-         <iframe width="420" height="315" src="http://www.youtube.com/embed/gYk_ssODOiA" frameborder="0" allowfullscreen></iframe>
-          <p><a class="btn" href="https://www.youtube.com/watch?v=gYk_ssODOiA">Veja detalhes do vídeo</a></p>
-        </div><!--/span-->
-        <div class="span4">
-          <h2>O Futuro da recciclagem de lixo eletrônico no Brasil</h2>
-         <iframe width="420" height="315" src="http://www.youtube.com/embed/LlssAZTz96s" frameborder="0" allowfullscreen></iframe>
-          <p><a class="btn" href="https://www.youtube.com/watch?v=LlssAZTz96s">Veja detalhes do vídeo</a></p>
-        </div><!--/span-->
-      </div><!--/row-->
-		</div>
-	</main>
 
-	<script src="http://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyAYFumAwAsJnUar1GEwD-vO0LfO_gD4XaE&language=pt-br"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script src="js/vendor/handlebars.js"></script>
-	<script src="js/vendor/bootstrap.min.js"></script>
-	<script src="js/drop-off-map.js"></script>
+<div class="container" id="main">
+  <div id="wrap" class="row-fluid wrap">
+    <!--Sidebar content-->
+    <aside class="well span3 oc" id="side-menu" role="navigation">
+      <ul class="nav nav-list" id="point-list">
+        <li class="nav-header">Sobre</li>
+        <li><a href="#about">O que é esse site?</a></li>
+        <li class="nav-header">Pontos de coleta</li>
+      </ul>
+    </aside>
+    
+    <!--Body content-->
+    <section class="well span9 " id="map-canvas">
+    </section>
+    
+  </div>
+  <div class="row-fluid wrap" id="about">
+    <div class="well span12 jumbotron">
+      <h1>Descarte Seguro de Lixo Eletrônico</h1>
+      <p class="lead">Nós queremos divulgar pontos seguros de coleta de lixo eletrônico</p>
+      <p>No mapa acima você encontra diversos desses pontos nos arredores da cidade de Niterói, no Rio de Janeiro.</p>
+      <p>Nosso objetivo é catalogar ainda mais lugares e termos um mapa completo dos locais no Brasil onde o e-lixo possa ser descartado com segurança.</p>
+      <p>No vídeo abaixo você pode assistir uma entrevista com feita com o <strong>Reinaldo</strong> da <strong>Cooperativa de Catadores de Niterói</strong> sobre a importância do descarte adequado do e-lixo e o que acontece com o lixo quando ele chega na cooperativa.</p>
+      <iframe class="video" src="http://www.youtube.com/embed/5xX1ox6GLdI" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+   <div class="row-fluid wrap" id="about">
+    <div class="well span12 jumbotron">
+      <p>Esse projeto é uma iniciativa dos alunos da disciplina <strong>Computação e Meio Ambiente</strong>, ministrada pela Prof. Rosangela na <strong>Universidade Federal Fluminense</strong>: <a href="http://twitter.com/leobetosouza">Leonardo Alberto Souza</a>, <a href="#">Alexandre Estebanez</a>, <a href="#">Higor Ortiz</a>, <a href="#">Leonardo Azevedo</a> e <a href="#">Thiago Banicio</a> e <a href="#">Leonardo Lage</a>.</p>
+      <p><a href="http://ic-uff.github.com/e-waste-drop-off-locator/">Todo código está disponibilizado sobre licença aberta e contribuições são bem-vindas.</a></p>
+    </div>
+  </div>
+</div>
 
-	<script id="map-pop-tmpl" type="text/x-handlebars-template">
-		<div class="gm-iw">
-			<div class="gm-title">{{name}}</div>
-			<div class="gm-basicinfo">
-				<div>{{address}}</div>
-				<div>{{#each tels}}{{this}} {{/each}}</div>
-			</div>
-		</div>
-	</script>
-	<script id="sidebar-link-tmpl" type="text/x-handlebars-template">
-		<li><a href="#">{{name}}</a></li>
-	</script>
 
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  <script src="http://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyAYFumAwAsJnUar1GEwD-vO0LfO_gD4XaE&language=pt-br"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="js/vendor/handlebars.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/drop-off-map.js"></script>
 
-		ga('create', 'UA-39252222-1', 'github.com');
-		ga('send', 'pageview');
-	</script>
+  <script id="map-pop-tmpl" type="text/x-handlebars-template">
+    <div class="gm-iw">
+      <div class="gm-title">{{name}}</div>
+      <div class="gm-basicinfo">
+        <div>{{address}}</div>
+        <div>{{#each tels}}{{this}} {{/each}}</div>
+      </div>
+    </div>
+  </script>
+  <script id="sidebar-link-tmpl" type="text/x-handlebars-template">
+    <li><a href="#">{{name}}</a></li>
+  </script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-39252222-1', 'github.com');
+    ga('send', 'pageview');
+  </script>
 </body>
 </html>

@@ -1,0 +1,77 @@
+#main{
+  margin-top:60px;
+}
+.container {
+}
+
+.navbar .btn-navbar{
+  float:left;
+}
+
+.video{
+  width:100%;
+  height:400px;
+}
+
+/* below is some code reused from http://codepen.io/bradfrost/pen/sjiCv */
+
+.wrap {
+  position: relative;
+  -webkit-transition: all 0.3s ease-out;  
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.wrap.active {
+  left: 14em;
+}
+a.side-menu-link {
+  float: left;
+  display: block;
+  padding: 1em;
+}
+
+#map-canvas{
+  min-height:800px;
+  background-image:url(../img/loading.gif);
+  background-position:50% 50%;
+  background-repeat:no-repeat;
+}
+
+@media (max-width: 979px){
+  #main{
+    margin-top:0;
+  }
+  .navbar .btn-navbar{
+    display:none;
+  }
+
+}
+
+@media screen and (max-width: 48.063em) {
+  .navbar .btn-navbar{
+    display:block;
+  }
+  .js .oc {
+    width: 200px;
+    position: absolute;
+    top: 0;
+    left: -14em;
+  }
+  #main{
+    margin-top:40px;
+  }
+  .video{
+    height:250px;
+  }
+}
+
+@media screen and (min-width: 48.25em) {
+  a.side-menu-link {
+    /*display: none;*/
+  }
+  .wrap.active {
+    left: 0;
+  }
+}
